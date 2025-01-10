@@ -21,6 +21,8 @@
       "title": "Angular Basics",
       "description": "Test your knowledge of Angular basics.",
       "category": "Angular",
+      "subcategory": "Introduction",
+      "registered": true,
       "questions": [
         {
           "id": 1,
@@ -41,6 +43,8 @@
       "title": "JavaScript Fundamentals",
       "description": "A quiz about JavaScript basics.",
       "category": "JavaScript",
+      "subcategory": "Basics",
+      "registered": false,
       "questions": [
         {
           "id": 1,

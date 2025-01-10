@@ -1,3 +1,20 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer></app-footer> -->
+
+<div class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="sticky top-0 z-50">
+    <app-header></app-header>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow p-4">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Footer -->
+  <footer class="">
+    <app-footer></app-footer>
+  </footer>
+</div>
