@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Admin",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Jane User",
+      "email": "jane@example.com",
+      "password": "user123",
+      "role": "user"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": 1,
+      "title": "Angular Basics",
+      "description": "Test your knowledge of Angular basics.",
+      "category": "Angular",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is Angular?",
+          "options": ["Framework", "Library", "Language"],
+          "correctAnswer": "Framework"
+        },
+        {
+          "id": 2,
+          "question": "Which company developed Angular?",
+          "options": ["Facebook", "Google", "Microsoft"],
+          "correctAnswer": "Google"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "JavaScript Fundamentals",
+      "description": "A quiz about JavaScript basics.",
+      "category": "JavaScript",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following is a JavaScript data type?",
+          "options": ["String", "Array", "Both"],
+          "correctAnswer": "Both"
+        },
+        {
+          "id": 2,
+          "question": "What is the correct syntax for referring to an external script?",
+          "options": [
+            "<script href='script.js'>",
+            "<script src='script.js'>",
+            "<script name='script.js'>"
+          ],
+          "correctAnswer": "<script src='script.js'>"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": 1,
+      "userId": 2,
+      "quizId": 1,
+      "score": 80,
+      "date": "2025-01-10"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "quizId": 2,
+      "score": 90,
+      "date": "2025-01-09"
+    }
+  ]
+}
