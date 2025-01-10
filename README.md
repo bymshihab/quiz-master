@@ -25,3 +25,41 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Pages and Components
+
+# Common:
+
+Home Page (Landing Page for all users).
+Login & Register.
+
+# Admin:
+
+Dashboard (Manage Quizzes, View Results).
+Create/Edit Quiz Page (Form for adding quizzes).
+Quiz Analytics Page.
+
+# Normal Users:
+
+Quiz List (Browse available quizzes).
+Quiz Detail Page (Take quiz).
+Result Page (View results).
+Dashboard (For registered users to view progress).
+
+## Unique Learning Goals
+
+# Admin Side:
+
+CRUD operations using JSON Server for quizzes and results.
+Role-based routing and authentication.
+
+# User Side:
+
+Conditional functionality for registered vs. non-registered users.
+Data binding and handling quiz logic (e.g., score calculation).
+
+# Angular Concepts:
+
+Routing and guards for admin vs. user access.
+Reactive forms for quiz creation and taking quizzes.
+Observables for fetching data from JSON Server.
