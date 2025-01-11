@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 
+import { ApplicationRef } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,4 +14,9 @@ import { FooterComponent } from '../shared/footer/footer.component';
 })
 export class AppComponent {
   title = 'quizeMaster';
+  // constructor(appRef: ApplicationRef) {
+  //   appRef.isStable.subscribe((isStable) => {
+  //     console.log(`Application is stable====>: ${isStable}`);
+  //   });
+  // }
 }

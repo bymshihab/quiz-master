@@ -164,6 +164,3 @@ quiz-master/
 ├── angular.json # Angular CLI configuration
 ├── package.json # Project dependencies
 └── README.md # Project documentation
-
-<!-- ng generate guard core/auth --standalone
-ng generate interceptor core/auth --standalone -->

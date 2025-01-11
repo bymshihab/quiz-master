@@ -1,1 +1,38 @@
-<p>quiz-list works!</p>
+<div
+  *ngIf="quizzes | async as quizzes; else loading"
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+>
+  <div
+    *ngFor="let quiz of quizzes"
+    class="border border-red-500 card card-compact bg-base-100 w-80 shadow-xl"
+  >
+    <figure>
+      <img
+        class="rounded-t-lg w-full h-56"
+        [src]="quiz.coverImage || '/assets/default-image.png'"
+        alt="{{ quiz.title }}"
+      />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">{{ quiz.title }}</h2>
+      <p>{{ quiz.description }}</p>
+      <p>
+        <span class="font-bold">Estemeted Time:</span> {{ quiz.takeTime }}
+        <span>minutes</span>
+      </p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Take the Challenge</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading quizzes...</p>
+  <div class="card card-compact bg-base-100 w-96 shadow-xl">
+    <div class="skeleton h-32 w-full"></div>
+    <div class="skeleton h-4 w-28"></div>
+    <div class="skeleton h-4 w-full"></div>
+    <div class="skeleton h-4 w-full"></div>
+  </div>
+</ng-template>

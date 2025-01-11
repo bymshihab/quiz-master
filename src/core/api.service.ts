@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { API_URL } from '../../config';
 
 @Injectable({
@@ -11,28 +12,46 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  // Get all records for a specific endpoint
-  getAll(endpoint: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}${endpoint}`);
+  // Get all records for a specific endpoint and model type
+  getAll<T>(endpoint: string): Observable<T[]> {
+    return this.http.get<T[]>(`${this.baseUrl}${endpoint}`).pipe(
+      tap((response) => {
+        console.log('Fetched Data:', response); // Log the fetched data inside the service
+      }),
+      catchError(this.handleError) // Error handling
+    );
   }
 
-  // Get a single record by ID for a specific endpoint
-  getById(endpoint: string, id: number | string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}${endpoint}/${id}`);
+  // Get a single record by ID for a specific endpoint and model type
+  getById<T>(endpoint: string, id: number | string): Observable<T> {
+    return this.http.get<T>(`${this.baseUrl}${endpoint}/${id}`).pipe(
+      catchError(this.handleError) // Error handling
+    );
   }
 
-  // Create a new record for a specific endpoint
-  create(endpoint: string, data: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}${endpoint}`, data);
+  // Create a new record for a specific endpoint and model type
+  create<T>(endpoint: string, data: T): Observable<T> {
+    return this.http.post<T>(`${this.baseUrl}${endpoint}`, data).pipe(
+      catchError(this.handleError) // Error handling
+    );
   }
 
-  // Update a record by ID for a specific endpoint
-  update(endpoint: string, id: number | string, data: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}${endpoint}/${id}`, data);
+  // Update a record by ID for a specific endpoint and model type
+  update<T>(endpoint: string, id: number | string, data: T): Observable<T> {
+    return this.http.put<T>(`${this.baseUrl}${endpoint}/${id}`, data).pipe(
+      catchError(this.handleError) // Error handling
+    );
   }
 
-  // Delete a record by ID for a specific endpoint
-  delete(endpoint: string, id: number | string): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}${endpoint}/${id}`);
+  // Delete a record by ID for a specific endpoint and model type
+  delete<T>(endpoint: string, id: number | string): Observable<T> {
+    return this.http.delete<T>(`${this.baseUrl}${endpoint}/${id}`).pipe(
+      catchError(this.handleError) // Error handling
+    );
+  }
+
+  private handleError(error: any): Observable<never> {
+    console.error('An error occurred', error); // Log the error
+    throw error; // Re-throw the error
   }
 }

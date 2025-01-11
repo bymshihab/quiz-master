@@ -1,12 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../core/api.service';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Quiz } from '../quizzes';
 
 @Component({
   selector: 'app-quiz-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './quiz-list.component.html',
-  styleUrl: './quiz-list.component.css'
+  styleUrls: ['./quiz-list.component.css'],
 })
-export class QuizListComponent {
+export class QuizListComponent implements OnInit {
+  quizzes!: Observable<Quiz[]>; // Observable to store quizzes
+  error: string | null = null; // To handle any errors
 
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.getAllQuizzes(); // Fetch all quizzes when the component loads
+  }
+
+  // Fetch all quizzes dynamically using the generic ApiService
+  getAllQuizzes(): void {
+    this.quizzes = this.apiService.getAll<Quiz>('quizzes'); // Passing 'Quiz' as the generic type
+  }
 }
