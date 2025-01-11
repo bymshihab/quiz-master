@@ -3,11 +3,12 @@ import { ApiService } from '../../../core/api.service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Quiz } from '../quizzes';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './quiz-list.component.html',
   styleUrls: ['./quiz-list.component.css'],
 })

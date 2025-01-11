@@ -12,7 +12,7 @@ export const routes: Routes = [
       import('../features/admin/admin.routes').then((m) => m.ADMIN_ROUTES),
   },
   {
-    path: 'user',
+    path: '',
     loadChildren: () =>
       import('../features/user/user.routes').then((m) => m.USER_ROUTES),
   },

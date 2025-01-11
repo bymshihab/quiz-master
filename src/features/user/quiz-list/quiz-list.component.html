@@ -21,7 +21,12 @@
         <span>minutes</span>
       </p>
       <div class="card-actions justify-end">
-        <button class="btn btn-primary">Take the Challenge</button>
+        <button
+          class="btn btn-primary"
+          [routerLink]="['/quiz-detail', quiz.id]"
+        >
+          Take the Challenge
+        </button>
       </div>
     </div>
   </div>

@@ -14,11 +14,11 @@ export const USER_ROUTES: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'quizDetail',
+    path: 'quiz-detail/:id',
     component: QuizDetailComponent,
   },
   {
-    path: 'quizList',
+    path: 'quiz-list',
     component: QuizListComponent,
   },
   {
