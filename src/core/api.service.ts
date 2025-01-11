@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { API_URL } from '../../config';
 
@@ -16,16 +16,37 @@ export class ApiService {
   getAll<T>(endpoint: string): Observable<T[]> {
     return this.http.get<T[]>(`${this.baseUrl}${endpoint}`).pipe(
       tap((response) => {
-        console.log('Fetched Data:', response); // Log the fetched data inside the service
+        //console.log('Fetched Data:', response); // Log the fetched data inside the service
       }),
       catchError(this.handleError) // Error handling
     );
   }
 
   // Get a single record by ID for a specific endpoint and model type
-  getById<T>(endpoint: string, id: number | string): Observable<T> {
+  // getById<T>(endpoint: string, id: number): Observable<T> {
+  //   return this.http.get<T>(`${this.baseUrl}${endpoint}/${id}`).pipe(
+  //     tap((response) => {
+  //       console.log('dhukche...');
+
+  //       console.log('Fetched Data details:', response); // Log the fetched data inside the service
+  //     }),
+  //     tap(() => {
+  //       console.log('dhukche...', this.handleError);
+  //     }),
+  //     catchError(this.handleError) // Error handling
+  //   );
+  // }
+
+  getById<T>(endpoint: string, id: number): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}${endpoint}/${id}`).pipe(
-      catchError(this.handleError) // Error handling
+      tap((response) => {
+        console.log('Fetching data from endpoint...');
+        console.log('Fetched Data details:', response); // Log the fetched data
+      }),
+      catchError((error) => {
+        console.error('Error occurred while fetching data:', error); // Log the error
+        return throwError(() => error); // Re-throw the error
+      })
     );
   }
 
