@@ -13,7 +13,7 @@ export const ADMIN_ROUTES: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'quizForm',
+    path: 'quiz-form',
     component: QuizFormComponent,
   },
   {

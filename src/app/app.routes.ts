@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { QuizListComponent } from '../features/user/quiz-list/quiz-list.component';
 import { HomeLayoutComponent } from '../features/user/home-layout/home-layout.component';
+import { AuthLayoutComponent } from '../features/auth/auth-layout/auth-layout.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,7 @@ export const routes: Routes = [
   },
   {
     path: '',
+    component: AuthLayoutComponent,
     loadChildren: () =>
       import('../features/auth/auth.routes').then((m) => m.AUTH_ROUTES),
   },
