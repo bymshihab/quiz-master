@@ -1,10 +1,21 @@
-<div class="navbar bg-base-100 text-neutral-content shadow-lg">
-  <div class="flex-1">
-    <a class="btn btn-ghost text-xl">
+<div
+  class="navbar bg-base-100 text-neutral-content shadow-lg flex justify-between items-center"
+>
+  <div class="">
+    <a class="text-xl">
       <span><i class="fa-brands fa-quinscape"></i></span> Quiz Master</a
     >
   </div>
-  <div class="flex-none gap-2">
+
+  <div class="form-control w-2/3">
+    <input
+      type="text"
+      placeholder="Search"
+      class="input input-bordered w-full"
+    />
+  </div>
+
+  <div class="">
     <div>
       <a class="btn btn-ghost">Home</a>
 
@@ -59,16 +70,9 @@
         </ul>
       </div>
 
-      <a class="btn btn-ghost">About</a>
-      <a class="btn btn-ghost">Contact</a>
+      <a class="btn btn-outline">Log in</a>
     </div>
-    <div class="form-control">
-      <input
-        type="text"
-        placeholder="Search"
-        class="input input-bordered w-24 md:w-auto"
-      />
-    </div>
+
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">

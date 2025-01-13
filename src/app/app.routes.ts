@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
 import { QuizListComponent } from '../features/user/quiz-list/quiz-list.component';
+import { HomeLayoutComponent } from '../features/user/home-layout/home-layout.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: QuizListComponent,
+    component: HomeLayoutComponent,
+    loadChildren: () =>
+      import('../features/user/user.routes').then((m) => m.USER_ROUTES),
   },
   {
     path: 'admin',
