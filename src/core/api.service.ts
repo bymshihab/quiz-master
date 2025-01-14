@@ -22,21 +22,6 @@ export class ApiService {
     );
   }
 
-  // Get a single record by ID for a specific endpoint and model type
-  // getById<T>(endpoint: string, id: number): Observable<T> {
-  //   return this.http.get<T>(`${this.baseUrl}${endpoint}/${id}`).pipe(
-  //     tap((response) => {
-  //       console.log('dhukche...');
-
-  //       console.log('Fetched Data details:', response); // Log the fetched data inside the service
-  //     }),
-  //     tap(() => {
-  //       console.log('dhukche...', this.handleError);
-  //     }),
-  //     catchError(this.handleError) // Error handling
-  //   );
-  // }
-
   getById<T>(endpoint: string, id: number): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}${endpoint}/${id}`).pipe(
       tap((response) => {

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuizFormComponent } from './quiz-form.component';
+import { CustomModalComponent } from './custom-modal.component';
 
-describe('QuizFormComponent', () => {
-  let component: QuizFormComponent;
-  let fixture: ComponentFixture<QuizFormComponent>;
+describe('CustomModalComponent', () => {
+  let component: CustomModalComponent;
+  let fixture: ComponentFixture<CustomModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuizFormComponent]
+      imports: [CustomModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(QuizFormComponent);
+    fixture = TestBed.createComponent(CustomModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

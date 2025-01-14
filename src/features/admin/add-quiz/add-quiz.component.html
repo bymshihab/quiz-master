@@ -1,0 +1,342 @@
+<div class="flex items-center justify-end broder border-gray-200 p-4 my-4">
+  <div>
+    <button class="btn btn-active" onclick="addQuiz.showModal()">
+      Add Quiz <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+</div>
+
+<div class="overflow-x-auto border border-gray-200 rounded-lg mx-5">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" class="checkbox" />
+          </label>
+        </th>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Favorite Color</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" class="checkbox" />
+          </label>
+        </th>
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle h-12 w-12">
+                <img
+                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </div>
+            </div>
+            <div>
+              <div class="font-bold">Hart Hagerty</div>
+              <div class="text-sm opacity-50">United States</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          Zemlak, Daniel and Leannon
+          <br />
+          <span class="badge badge-ghost badge-sm"
+            >Desktop Support Technician</span
+          >
+        </td>
+        <td>Purple</td>
+        <th>
+          <button class="btn btn-ghost btn-xs">details</button>
+        </th>
+      </tr>
+      <!-- row 2 -->
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" class="checkbox" />
+          </label>
+        </th>
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle h-12 w-12">
+                <img
+                  src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </div>
+            </div>
+            <div>
+              <div class="font-bold">Brice Swyre</div>
+              <div class="text-sm opacity-50">China</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          Carroll Group
+          <br />
+          <span class="badge badge-ghost badge-sm">Tax Accountant</span>
+        </td>
+        <td>Red</td>
+        <th>
+          <button class="btn btn-ghost btn-xs">details</button>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- modal -->
+<dialog id="addQuiz" class="modal">
+  <div
+    class="modal-box w-11/12 max-w-5xl mt-10 absolute top-10 left-1/2 transform -translate-x-1/2"
+  >
+    <h3 class="text-lg font-bold">Add Quiz</h3>
+    <p class="py-4">Fill in the details to create a new quiz</p>
+    <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <!-- Quiz Title -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700"
+          >Quiz Title</label
+        >
+        <input
+          type="text"
+          formControlName="title"
+          class="input input-bordered w-full"
+          placeholder="Enter quiz title"
+        />
+        <div
+          *ngIf="
+            quizForm.get('title')?.invalid && quizForm.get('title')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Title is required.
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700"
+          >Description</label
+        >
+        <textarea
+          formControlName="description"
+          class="textarea textarea-bordered w-full"
+          placeholder="Enter quiz description"
+        ></textarea>
+        <div
+          *ngIf="
+            quizForm.get('description')?.invalid &&
+            quizForm.get('description')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Description is required.
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Category</label>
+        <input
+          type="text"
+          formControlName="category"
+          class="input input-bordered w-full"
+          placeholder="Enter category"
+        />
+        <div
+          *ngIf="
+            quizForm.get('category')?.invalid &&
+            quizForm.get('category')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Category is required.
+        </div>
+      </div>
+
+      <!-- Subcategory -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700"
+          >Subcategory</label
+        >
+        <input
+          type="text"
+          formControlName="subcategory"
+          class="input input-bordered w-full"
+          placeholder="Enter subcategory"
+        />
+        <div
+          *ngIf="
+            quizForm.get('subcategory')?.invalid &&
+            quizForm.get('subcategory')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Subcategory is required.
+        </div>
+      </div>
+
+      <!-- Take Time -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700"
+          >Time (minutes)</label
+        >
+        <input
+          type="number"
+          formControlName="takeTime"
+          class="input input-bordered w-full"
+          placeholder="Enter time to take the quiz"
+        />
+        <div
+          *ngIf="
+            quizForm.get('takeTime')?.invalid &&
+            quizForm.get('takeTime')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Time must be at least 1 minute.
+        </div>
+      </div>
+
+      <!-- Cover Image -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700"
+          >Cover Image</label
+        >
+        <input
+          type="file"
+          (change)="handleFileInput($event)"
+          class="file-input file-input-bordered w-full max-w-xs"
+        />
+        <div
+          *ngIf="
+            quizForm.get('coverImage')?.invalid &&
+            quizForm.get('coverImage')?.touched
+          "
+          class="text-red-500 text-sm"
+        >
+          Cover Image is required.
+        </div>
+      </div>
+
+      <!-- Active Status -->
+      <div class="flex items-center">
+        <input type="checkbox" formControlName="isActive" class="checkbox" />
+        <label class="ml-2 text-sm font-medium text-gray-700">Is Active</label>
+      </div>
+
+      <!-- Registered Status -->
+      <div class="flex items-center">
+        <input type="checkbox" formControlName="registered" class="checkbox" />
+        <label class="ml-2 text-sm font-medium text-gray-700">Registered</label>
+      </div>
+
+      <!-- Questions Section -->
+      <div formArrayName="questions" class="space-y-4">
+        <div
+          *ngFor="let question of questions.controls; let i = index"
+          [formGroupName]="i"
+          class="question-item border p-4 rounded"
+        >
+          <label class="block text-sm font-medium text-gray-700"
+            >Question {{ i + 1 }}</label
+          >
+          <input
+            type="text"
+            formControlName="question"
+            class="input input-bordered w-full"
+            placeholder="Enter question text"
+          />
+          <div
+            *ngIf="
+              question.get('question')?.invalid &&
+              question.get('question')?.touched
+            "
+            class="text-red-500 text-sm"
+          >
+            Question is required.
+          </div>
+
+          <label class="block text-sm font-medium text-gray-700 mt-2"
+            >Options</label
+          >
+          <div formArrayName="options">
+            <div
+              *ngFor="
+                let option of question.get('options').controls;
+                let j = index
+              "
+            >
+              <input
+                type="text"
+                [formControlName]="j"
+                class="input input-bordered w-full mt-2"
+                placeholder="Option {{ j + 1 }}"
+              />
+              <div
+                *ngIf="option?.invalid && option?.touched"
+                class="text-red-500 text-sm"
+              >
+                Option {{ j + 1 }} is required.
+              </div>
+            </div>
+          </div>
+
+          <label class="block text-sm font-medium text-gray-700 mt-2"
+            >Correct Answer</label
+          >
+          <input
+            type="text"
+            formControlName="correctAnswer"
+            class="input input-bordered w-full"
+            placeholder="Enter correct answer"
+          />
+          <div
+            *ngIf="
+              question.get('correctAnswer')?.invalid &&
+              question.get('correctAnswer')?.touched
+            "
+            class="text-red-500 text-sm"
+          >
+            Correct Answer is required.
+          </div>
+
+          <button
+            type="button"
+            (click)="removeQuestion(i)"
+            class="btn btn-outline mt-2"
+          >
+            Remove Question
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        (click)="addQuestion()"
+        class="btn btn-outline mt-4"
+      >
+        Add Another Question
+      </button>
+
+      <!-- Form Actions -->
+      <div class="modal-action">
+        <button type="submit" class="btn btn-primary">Save Quiz</button>
+        <button type="button" class="btn" (click)="quizForm.reset()">
+          Close
+        </button>
+      </div>
+    </form>
+  </div>
+</dialog>

@@ -96,6 +96,7 @@
       "category": "Angular",
       "subcategory": "Introduction",
       "registered": true,
+      "isActive": true,
       "takeTime": 20,
       "coverImage": "https://miro.medium.com/v2/resize:fit:4800/format:webp/1*cGDDA2mfYkjiIhGaN8gDoA.png",
       "questions": [
@@ -120,6 +121,7 @@
       "category": "JavaScript",
       "subcategory": "Basics",
       "registered": false,
+      "isActive": true,
       "takeTime": 15,
       "coverImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
       "questions": [
