@@ -15,4 +15,5 @@ export interface Quiz {
   questions: Question[];
   coverImage: string;
   takeTime: number;
+  isActive: boolean;
 }

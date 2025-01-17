@@ -5,7 +5,8 @@
       "name": "John Admin",
       "email": "admin@example.com",
       "password": "admin123",
-      "role": "admin"
+      "role": "admin",
+      "id": "c763"
     },
     {
       "Id": 2,
@@ -14,8 +15,14 @@
       "password": "user123",
       "role": "user",
       "registered": true,
-      "quizzes": [1, 2],
-      "results": [1, 2],
+      "quizzes": [
+        1,
+        2
+      ],
+      "results": [
+        1,
+        2
+      ],
       "createdAt": "2025-01-01",
       "updatedAt": "2025-01-01",
       "lastLogin": "2025-01-01",
@@ -45,7 +52,8 @@
           "date": "2025-01-01",
           "message": "Hello, Jane!"
         }
-      ]
+      ],
+      "id": "1a74"
     },
     {
       "Id": 3,
@@ -85,12 +93,13 @@
           "date": "2025-01-02",
           "message": "Hello, Bob!"
         }
-      ]
+      ],
+      "id": "f92b"
     }
   ],
   "quizzes": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Angular Basics",
       "description": "Test your knowledge of Angular basics.",
       "category": "Angular",
@@ -103,19 +112,27 @@
         {
           "id": 1,
           "question": "What is Angular?",
-          "options": ["Framework", "Library", "Language"],
+          "options": [
+            "Framework",
+            "Library",
+            "Language"
+          ],
           "correctAnswer": "Framework"
         },
         {
           "id": 2,
           "question": "Which company developed Angular?",
-          "options": ["Facebook", "Google", "Microsoft"],
+          "options": [
+            "Facebook",
+            "Google",
+            "Microsoft"
+          ],
           "correctAnswer": "Google"
         }
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "JavaScript Fundamentals",
       "description": "A quiz about JavaScript basics.",
       "category": "JavaScript",
@@ -128,7 +145,11 @@
         {
           "id": 1,
           "question": "Which of the following is a JavaScript data type?",
-          "options": ["String", "Array", "Both"],
+          "options": [
+            "String",
+            "Array",
+            "Both"
+          ],
           "correctAnswer": "Both"
         },
         {
@@ -144,17 +165,16 @@
       ]
     }
   ],
-
   "results": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 2,
       "quizId": 1,
       "score": 80,
       "date": "2025-01-10"
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 2,
       "quizId": 2,
       "score": 90,

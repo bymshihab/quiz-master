@@ -8,7 +8,7 @@
 
 <div class="overflow-x-auto border border-gray-200 rounded-lg mx-5">
   <table class="table">
-    <!-- head -->
+    <!-- Table Head -->
     <thead>
       <tr>
         <th>
@@ -16,15 +16,18 @@
             <input type="checkbox" class="checkbox" />
           </label>
         </th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th></th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Take Time</th>
+        <th>Active Status</th>
+        <th>For Registered Users</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <!-- row 1 -->
-      <tr>
+      <!-- Table Rows -->
+      <tr *ngFor="let quiz of data">
         <th>
           <label>
             <input type="checkbox" class="checkbox" />
@@ -34,62 +37,49 @@
           <div class="flex items-center gap-3">
             <div class="avatar">
               <div class="mask mask-squircle h-12 w-12">
-                <img
-                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                  alt="Avatar Tailwind CSS Component"
-                />
+                <img [src]="quiz.coverImage" alt="{{ quiz.title }}" />
               </div>
             </div>
             <div>
-              <div class="font-bold">Hart Hagerty</div>
-              <div class="text-sm opacity-50">United States</div>
+              <div class="font-bold">{{ quiz.title }}</div>
+              <div class="text-sm opacity-50">{{ quiz.description }}</div>
             </div>
           </div>
         </td>
+        <td>{{ quiz.category }}</td>
+        <td>{{ quiz.subcategory }}</td>
+        <td>{{ quiz.takeTime }} mins</td>
         <td>
-          Zemlak, Daniel and Leannon
-          <br />
-          <span class="badge badge-ghost badge-sm"
-            >Desktop Support Technician</span
+          <span
+            class="badge px-3 py-1 rounded-full text-white"
+            [ngClass]="{
+              'bg-green-500': quiz.isActive,
+              'bg-red-500': !quiz.isActive
+            }"
+          >
+            {{ quiz.isActive ? "Active" : "Inactive" }}
+          </span>
+        </td>
+
+        <td>
+          <span
+            class="badge px-3 py-1 rounded-full text-white"
+            [ngClass]="{
+              'bg-green-500': quiz.registered,
+              'bg-red-500': !quiz.registered
+            }"
+          >
+            {{ quiz.registered ? "Yes" : "No" }}</span
           >
         </td>
-        <td>Purple</td>
-        <th>
-          <button class="btn btn-ghost btn-xs">details</button>
-        </th>
-      </tr>
-      <!-- row 2 -->
-      <tr>
-        <th>
-          <label>
-            <input type="checkbox" class="checkbox" />
-          </label>
-        </th>
         <td>
-          <div class="flex items-center gap-3">
-            <div class="avatar">
-              <div class="mask mask-squircle h-12 w-12">
-                <img
-                  src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                  alt="Avatar Tailwind CSS Component"
-                />
-              </div>
-            </div>
-            <div>
-              <div class="font-bold">Brice Swyre</div>
-              <div class="text-sm opacity-50">China</div>
-            </div>
-          </div>
+          <button class="btn btn-ghost btn-xs" (click)="editQuiz(quiz)">
+            Edit
+          </button>
+          <button class="btn btn-ghost btn-xs" (click)="deleteQuiz(quiz)">
+            Delete
+          </button>
         </td>
-        <td>
-          Carroll Group
-          <br />
-          <span class="badge badge-ghost badge-sm">Tax Accountant</span>
-        </td>
-        <td>Red</td>
-        <th>
-          <button class="btn btn-ghost btn-xs">details</button>
-        </th>
       </tr>
     </tbody>
   </table>
@@ -298,13 +288,10 @@
           Add Question
         </button>
       </div>
+      <div class="modal-action">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn" (click)="closeModal()">Close</button>
+      </div>
     </form>
-
-    <div class="modal-action">
-      <form method="dialog">
-        <button type="submit">Save</button>
-        <button class="btn">Close</button>
-      </form>
-    </div>
   </div>
 </dialog>
