@@ -7,8 +7,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../../core/api.service';
+
+interface User {
+  email: string;
+  password: string;
+  role: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -20,7 +26,11 @@ import { ApiService } from '../../../core/api.service';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private apiService: ApiService, private fb: FormBuilder) {
+  constructor(
+    private apiService: ApiService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
@@ -42,13 +52,27 @@ export class LoginComponent {
             (user: any) =>
               user.email === userData.email &&
               user.password === userData.password
-          );
+          ) as User;
 
           if (foundUser) {
             console.log('User logged in successfully:', foundUser);
             alert('User logged in successfully');
             // Optionally, store user information in localStorage or a service
-            localStorage.setItem('loggedInUser', JSON.stringify(foundUser));
+            if (typeof window !== 'undefined' && window.localStorage) {
+              localStorage.setItem('loggedInUser', JSON.stringify(foundUser));
+              console.log('User information stored in localStorage');
+            } else {
+              console.error('localStorage is not available.');
+            }
+
+            if (foundUser.role === 'admin') {
+              console.log('Redirecting to the dashboard');
+
+              this.router.navigate(['/admin/dashboard']);
+            } else {
+              this.router.navigate(['/quiz-list']);
+            }
+
             // Redirect to the dashboard or home page
             // this.router.navigate(['/dashboard']);
           } else {

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { QuizListComponent } from '../features/user/quiz-list/quiz-list.component';
 import { HomeLayoutComponent } from '../features/user/home-layout/home-layout.component';
 import { AuthLayoutComponent } from '../features/auth/auth-layout/auth-layout.component';
 
