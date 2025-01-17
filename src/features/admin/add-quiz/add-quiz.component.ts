@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -37,23 +38,41 @@ export class AddQuizComponent {
     return this.quizForm.get('questions') as FormArray;
   }
 
-  addQuestion() {
-    const questionGroup = this.fb.group({
-      question: ['', Validators.required],
-      options: this.fb.array([
-        this.fb.control('', Validators.required),
-        this.fb.control('', Validators.required),
-        this.fb.control('', Validators.required),
-      ]),
-      correctAnswer: ['', Validators.required],
-    });
+  // Question related methods
 
+  addQ() {
+    const questionGroup = this.fb.group({
+      text: ['', Validators.required],
+      options: this.fb.array([
+        this.createOption(),
+        this.createOption(),
+        this.createOption(),
+      ]),
+    });
     this.questions.push(questionGroup);
   }
 
-  removeQuestion(index: number) {
+  removeQ(index: number) {
     this.questions.removeAt(index);
   }
+
+  createOption(): FormControl {
+    return this.fb.control('', Validators.required);
+  }
+
+  getOptions(questionIndex: number): FormArray {
+    return this.questions.at(questionIndex).get('options') as FormArray;
+  }
+
+  addOption(questionIndex: number) {
+    this.getOptions(questionIndex).push(this.createOption());
+  }
+
+  removeOption(questionIndex: number, optionIndex: number) {
+    this.getOptions(questionIndex).removeAt(optionIndex);
+  }
+
+  // end of the Question related methods
 
   handleFileInput(event: any) {
     const file = event.target.files[0];

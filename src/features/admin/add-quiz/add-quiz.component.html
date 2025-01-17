@@ -247,96 +247,64 @@
         <div
           *ngFor="let question of questions.controls; let i = index"
           [formGroupName]="i"
-          class="question-item border p-4 rounded"
+          class="bg-white p-6 rounded-lg shadow-md space-y-4"
         >
-          <label class="block text-sm font-medium text-gray-700"
-            >Question {{ i + 1 }}</label
-          >
           <input
+            formControlName="text"
+            placeholder="Question {{ i + 1 }}"
             type="text"
-            formControlName="question"
-            class="input input-bordered w-full"
-            placeholder="Enter question text"
+            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <div
-            *ngIf="
-              question.get('question')?.invalid &&
-              question.get('question')?.touched
-            "
-            class="text-red-500 text-sm"
-          >
-            Question is required.
-          </div>
-
-          <label class="block text-sm font-medium text-gray-700 mt-2"
-            >Options</label
-          >
-          <div formArrayName="options">
+          <div formArrayName="options" class="space-y-2">
             <div
-              *ngFor="
-                let option of question.get('options').controls;
-                let j = index
-              "
+              *ngFor="let option of getOptions(i).controls; let j = index"
+              class="flex items-center space-x-2"
             >
               <input
-                type="text"
                 [formControlName]="j"
-                class="input input-bordered w-full mt-2"
                 placeholder="Option {{ j + 1 }}"
+                type="text"
+                class="flex-grow p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <div
-                *ngIf="option?.invalid && option?.touched"
-                class="text-red-500 text-sm"
+              <button
+                (click)="removeOption(i, j)"
+                type="button"
+                class="p-2 text-red-600 hover:text-white hover:bg-red-600 border border-red-600 rounded-lg transition"
               >
-                Option {{ j + 1 }} is required.
-              </div>
+                Remove Option
+              </button>
             </div>
+            <button
+              (click)="addOption(i)"
+              type="button"
+              class="p-2 text-green-600 hover:text-white hover:bg-green-600 border border-green-600 rounded-lg transition"
+            >
+              Add Option
+            </button>
           </div>
-
-          <label class="block text-sm font-medium text-gray-700 mt-2"
-            >Correct Answer</label
-          >
-          <input
-            type="text"
-            formControlName="correctAnswer"
-            class="input input-bordered w-full"
-            placeholder="Enter correct answer"
-          />
-          <div
-            *ngIf="
-              question.get('correctAnswer')?.invalid &&
-              question.get('correctAnswer')?.touched
-            "
-            class="text-red-500 text-sm"
-          >
-            Correct Answer is required.
-          </div>
-
           <button
+            (click)="removeQ(i)"
             type="button"
-            (click)="removeQuestion(i)"
-            class="btn btn-outline mt-2"
+            class="w-full p-2 text-white bg-red-600 hover:bg-red-700 rounded-lg transition"
           >
             Remove Question
           </button>
         </div>
-      </div>
-
-      <button
-        type="button"
-        (click)="addQuestion()"
-        class="btn btn-outline mt-4"
-      >
-        Add Another Question
-      </button>
-
-      <!-- Form Actions -->
-      <div class="modal-action">
-        <button type="submit" class="btn btn-primary">Save Quiz</button>
-        <button type="button" class="btn" (click)="quizForm.reset()">
-          Close
+        <button
+          (click)="addQ()"
+          type="button"
+          class="w-full p-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition"
+        >
+          Add Question
         </button>
       </div>
     </form>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <button type="submit">Save</button>
+        <button class="btn">Close</button>
+      </form>
+    </div>
   </div>
 </dialog>
