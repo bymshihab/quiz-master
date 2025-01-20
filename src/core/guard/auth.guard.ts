@@ -1,37 +1,40 @@
-import { Injectable } from '@angular/core';
+import { inject } from '@angular/core';
 import {
-  CanActivate,
+  CanActivateFn,
+  Router,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
-  Router,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+export const authGuard: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  const router = inject(Router);
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean | UrlTree {
-    const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
-
-    if (user && user.role) {
-      // Check if the route's data contains the allowed role
-      if (route.data['roles'] && route.data['roles'].includes(user.role)) {
-        return true;
-      }
-      // Redirect to a not authorized page or home if the role is not allowed
-      this.router.navigate(['/']);
+  try {
+    if (typeof localStorage === 'undefined') {
+      router.navigate(['/login']);
       return false;
     }
 
-    // Redirect to login if the user is not authenticated
-    this.router.navigate(['/auth']);
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+
+    if (!user) {
+      router.navigate(['/login']);
+      return false;
+    }
+
+    const allowedRoles = route.data['roles'] as Array<string> | undefined;
+
+    if (allowedRoles && allowedRoles.includes(user.role)) {
+      return true;
+    } else {
+      router.navigate(['/login']);
+      return false;
+    }
+  } catch (error) {
+    router.navigate(['/login']);
     return false;
   }
-}
+};

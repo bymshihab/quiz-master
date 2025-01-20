@@ -16,85 +16,93 @@
   </div>
 
   <div class="">
-    <div>
-      <a class="btn btn-ghost">Home</a>
+    <a class="btn btn-ghost">Home</a>
 
-      <div class="dropdown dropdown-end dropdown-hover">
-        <a class="btn btn-ghost">Quizes</a>
+    <div class="dropdown dropdown-end dropdown-hover">
+      <a class="btn btn-ghost">Quizes</a>
+      <ul
+        class="dropdown-content menu xl:menu-horizontal bg-base-200 rounded-box lg:min-w-max mt-12"
+      >
+        <li>
+          <a>Solutions</a>
+          <ul>
+            <li><a>Design</a></li>
+            <li><a>Development</a></li>
+            <li><a>Hosting</a></li>
+            <li><a>Domain register</a></li>
+          </ul>
+        </li>
+        <li>
+          <a>Enterprise</a>
+          <ul>
+            <li><a>CRM software</a></li>
+            <li><a>Marketing management</a></li>
+            <li><a>Security</a></li>
+            <li><a>Consulting</a></li>
+          </ul>
+        </li>
+        <li>
+          <a>Products</a>
+          <ul>
+            <li><a>UI Kit</a></li>
+            <li><a>WordPress themes</a></li>
+            <li><a>WordPress plugins</a></li>
+            <li>
+              <a>Open source</a>
+              <ul>
+                <li><a>Auth management system</a></li>
+                <li><a>VScode theme</a></li>
+                <li><a>Color picker app</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>Company</a>
+          <ul>
+            <li><a>About us</a></li>
+            <li><a>Contact us</a></li>
+            <li><a>Privacy policy</a></li>
+            <li><a>Press kit</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="loggedInCheck; else loggedOut">
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS Navbar component"
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            />
+          </div>
+        </div>
         <ul
-          class="dropdown-content menu xl:menu-horizontal bg-base-200 rounded-box lg:min-w-max mt-12"
+          tabindex="0"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
         >
           <li>
-            <a>Solutions</a>
-            <ul>
-              <li><a>Design</a></li>
-              <li><a>Development</a></li>
-              <li><a>Hosting</a></li>
-              <li><a>Domain register</a></li>
-            </ul>
+            <a class="justify-between">
+              Profile
+              <span class="badge">New</span>
+            </a>
           </li>
+          <li><a class="">Settings</a></li>
           <li>
-            <a>Enterprise</a>
-            <ul>
-              <li><a>CRM software</a></li>
-              <li><a>Marketing management</a></li>
-              <li><a>Security</a></li>
-              <li><a>Consulting</a></li>
-            </ul>
-          </li>
-          <li>
-            <a>Products</a>
-            <ul>
-              <li><a>UI Kit</a></li>
-              <li><a>WordPress themes</a></li>
-              <li><a>WordPress plugins</a></li>
-              <li>
-                <a>Open source</a>
-                <ul>
-                  <li><a>Auth management system</a></li>
-                  <li><a>VScode theme</a></li>
-                  <li><a>Color picker app</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a>Company</a>
-            <ul>
-              <li><a>About us</a></li>
-              <li><a>Contact us</a></li>
-              <li><a>Privacy policy</a></li>
-              <li><a>Press kit</a></li>
-            </ul>
+            <a [routerLink]="['/login']" (click)="logout()" class="">Logout</a>
           </li>
         </ul>
       </div>
-
-      <a class="btn btn-outline">Log in</a>
     </div>
-
-    <div class="dropdown dropdown-end">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-          />
-        </div>
-      </div>
-      <ul
-        tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+    <ng-template #loggedOut>
+      <a
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+        class="btn btn-outline"
+        >Log in</a
       >
-        <li>
-          <a class="justify-between">
-            Profile
-            <span class="badge">New</span>
-          </a>
-        </li>
-        <li><a class="">Settings</a></li>
-        <li><a class="">Logout</a></li>
-      </ul>
-    </div>
+    </ng-template>
   </div>
 </div>

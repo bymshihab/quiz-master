@@ -1,4 +1,4 @@
-interface IProfile {
+export interface IProfile {
   id: number;
   userId: number;
   avatar: string;
@@ -10,21 +10,21 @@ interface IProfile {
   };
 }
 
-interface INotification {
+export interface INotification {
   id: number;
   userId: number;
   date: string;
   message: string;
 }
 
-interface IMessage {
+export interface IMessage {
   id: number;
   userId: number;
   date: string;
   message: string;
 }
 
-interface IUser {
+export interface IUser {
   Id: number;
   name: string;
   email: string;
