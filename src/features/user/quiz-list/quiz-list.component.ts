@@ -13,8 +13,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./quiz-list.component.css'],
 })
 export class QuizListComponent implements OnInit {
-  quizzes!: Observable<Quiz[]>; // Observable to store quizzes
-  error: string | null = null; // To handle any errors
+  // quizzes!: Observable<Quiz[]>; // Observable to store quizzes
+  quizzes: Quiz[] = [];
+  error: string | null = null;
 
   constructor(private apiService: ApiService) {}
 
@@ -22,8 +23,34 @@ export class QuizListComponent implements OnInit {
     this.getAllQuizzes(); // Fetch all quizzes when the component loads
   }
 
-  // Fetch all quizzes dynamically using the generic ApiService
   getAllQuizzes(): void {
-    this.quizzes = this.apiService.getAll<Quiz>('quizzes'); // Passing 'Quiz' as the generic type
+    this.apiService.getAll<Quiz>('quizzes').subscribe({
+      next: (quizzes) => {
+        // Filter quizzes based on isActive and registered conditions
+        this.quizzes = quizzes.filter(
+          (quiz) => quiz.isActive && this.shouldDisplayQuiz(quiz)
+        );
+        console.log('Filtered quizzes:', this.quizzes); // Log the filtered quizzes
+      },
+      error: (error) => {
+        console.error('Error occurred while fetching quizzes:', error); // Log the error
+        this.error = 'Failed to load quizzes. Please try again later.'; // Set a user-friendly error message
+      },
+    });
+  }
+
+  // Helper method to determine if a quiz should be displayed
+  private shouldDisplayQuiz(quiz: Quiz): boolean {
+    // Check if the user is logged in
+    const isLoggedIn = this.isUserLoggedIn();
+
+    // Display conditions: Show if not registered or if user is logged in
+    return !quiz.registered || isLoggedIn;
+  }
+
+  // Check if the user is logged in
+  private isUserLoggedIn(): boolean {
+    // Example: Check for a stored auth token indicating the user is logged in
+    return localStorage.getItem('isLoggedIn') === 'true';
   }
 }

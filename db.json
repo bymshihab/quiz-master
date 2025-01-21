@@ -157,35 +157,31 @@
       ]
     },
     {
-      "id": "2",
+      "id": "197d9a82-c01c-4d14-acc3-c8aa425ff539",
       "title": "JavaScript Fundamentals",
       "description": "A quiz about JavaScript basics.",
       "category": "JavaScript",
       "subcategory": "Basics",
-      "registered": false,
-      "isActive": true,
       "takeTime": 15,
       "coverImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+      "isActive": false,
+      "registered": false,
       "questions": [
         {
-          "id": 1,
-          "question": "Which of the following is a JavaScript data type?",
+          "text": "Which of the following is a JavaScript data type?",
           "options": [
             "String",
             "Array",
             "Both"
-          ],
-          "correctAnswer": "Both"
+          ]
         },
         {
-          "id": 2,
-          "question": "What is the correct syntax for referring to an external script?",
+          "text": "What is the correct syntax for referring to an external script?",
           "options": [
             "<script href='script.js'>",
             "<script src='script.js'>",
             "<script name='script.js'>"
-          ],
-          "correctAnswer": "<script src='script.js'>"
+          ]
         }
       ]
     }
