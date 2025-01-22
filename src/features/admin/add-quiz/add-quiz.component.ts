@@ -98,6 +98,7 @@ export class AddQuizComponent implements OnInit {
 
     // Populate the form with the quiz data
     this.quizForm.patchValue({
+      id: quiz.id,
       title: quiz.title,
       description: quiz.description,
       category: quiz.category,
