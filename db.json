@@ -15,8 +15,14 @@
       "password": "user123",
       "role": "user",
       "registered": true,
-      "quizzes": [1, 2],
-      "results": [1, 2],
+      "quizzes": [
+        1,
+        2
+      ],
+      "results": [
+        1,
+        2
+      ],
       "createdAt": "2025-01-01",
       "updatedAt": "2025-01-01",
       "lastLogin": "2025-01-01",
@@ -119,50 +125,29 @@
   "quizzes": [
     {
       "id": "1",
-      "title": "Angular Basics",
+      "title": "Angular Basics3333",
       "description": "Test your knowledge of Angular basics.",
       "category": "Angular",
       "subcategory": "Introduction",
-      "registered": false,
-      "isActive": true,
       "takeTime": 20,
       "coverImage": "https://miro.medium.com/v2/resize:fit:4800/format:webp/1*cGDDA2mfYkjiIhGaN8gDoA.png",
-      "questions": [
-        {
-          "id": 1,
-          "question": "What is Angular?",
-          "options": ["Framework", "Library", "Language"],
-          "correctAnswer": "Framework"
-        },
-        {
-          "id": 2,
-          "question": "Which company developed Angular?",
-          "options": ["Facebook", "Google", "Microsoft"],
-          "correctAnswer": "Google"
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "title": "JavaScript Fundamentals",
-      "description": "A quiz about JavaScript basics.",
-      "category": "JavaScript",
-      "subcategory": "Basics",
-      "takeTime": 15,
-      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
       "isActive": true,
-      "registered": true,
+      "registered": false,
       "questions": [
         {
-          "text": "Which of the following is a JavaScript data type?",
-          "options": ["String", "Array", "Both"]
+          "text": "qwWEQEWQWE",
+          "options": [
+            "Framework",
+            "Library",
+            "Language"
+          ]
         },
         {
-          "text": "What is the correct syntax for referring to an external script?",
+          "text": "new Question ",
           "options": [
-            "<script href='script.js'>",
-            "<script src='script.js'>",
-            "<script name='script.js'>"
+            "Facebook",
+            "Google",
+            "Microsoft"
           ]
         }
       ]

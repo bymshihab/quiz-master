@@ -22,9 +22,11 @@ import { Quiz } from '../../user/quizzes';
 export class AddQuizComponent implements OnInit {
   quizForm: FormGroup;
   data: any;
+  isEditMode: boolean = false;
 
   constructor(private apiService: ApiService, private fb: FormBuilder) {
     this.quizForm = this.fb.group({
+      id: [''],
       title: ['', Validators.required],
       description: ['', Validators.required],
       category: ['', Validators.required],
@@ -94,6 +96,7 @@ export class AddQuizComponent implements OnInit {
   }
 
   editQuiz(quiz: Quiz) {
+    this.isEditMode = true;
     console.log('Edit Quiz:', quiz);
 
     // Populate the form with the quiz data
@@ -113,7 +116,7 @@ export class AddQuizComponent implements OnInit {
     this.questions.clear(); // Clear existing questions
     quiz.questions.forEach((question) => {
       const questionGroup = this.fb.group({
-        text: [question.question, Validators.required],
+        text: [question.text, Validators.required],
         options: this.fb.array(
           question.options.map((option) =>
             this.fb.control(option, Validators.required)
@@ -134,13 +137,16 @@ export class AddQuizComponent implements OnInit {
     if (this.quizForm.valid) {
       const quizData = this.quizForm.value;
 
-      if (quizData.id) {
+      if (this.isEditMode) {
+        console.log('Update Quiz:', quizData);
+
         // Edit existing quiz
         this.apiService.update('quizzes', quizData.id, quizData).subscribe({
           next: (response) => {
             console.log('Quiz updated successfully:', response);
             this.getQuizData(); // Refresh the quiz list
             this.quizForm.reset(); // Reset the form after update
+            this.isEditMode = false; // Reset edit mode
             this.closeModal();
           },
           error: (error) => {
@@ -198,6 +204,8 @@ export class AddQuizComponent implements OnInit {
   }
 
   closeModal() {
+    this.quizForm.reset();
+    this.isEditMode = false; // Reset edit mode
     const modal = document.getElementById('addQuiz') as HTMLDialogElement;
     if (modal) {
       modal.close();
