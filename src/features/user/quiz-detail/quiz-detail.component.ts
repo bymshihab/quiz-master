@@ -43,8 +43,7 @@ export class QuizDetailComponent implements OnInit, OnDestroy {
   }
 
   getQuizDetail(): void {
-    const quizId = parseInt(this.quizId, 10);
-    this.apiService.getById<Quiz>('quizzes', quizId).subscribe({
+    this.apiService.getById<Quiz>('quizzes', this.quizId).subscribe({
       next: (data) => {
         this.quizz = data;
         this.initializeTimer(); // Start timer

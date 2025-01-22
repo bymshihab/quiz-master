@@ -85,12 +85,12 @@ export class AddQuizComponent implements OnInit {
 
   // end of the Question related methods
 
-  handleFileInput(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.quizForm.patchValue({ coverImage: file.name });
-    }
-  }
+  // handleFileInput(event: any) {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     this.quizForm.patchValue({ coverImage: file.name });
+  //   }
+  // }
   generateGUID(): string {
     return uuidv4();
   }

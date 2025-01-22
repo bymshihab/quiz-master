@@ -6,7 +6,7 @@ export interface Question {
 }
 
 export interface Quiz {
-  id: number;
+  id: string;
   title: string;
   description: string;
   category: string;
