@@ -3,6 +3,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddQuizComponent } from './add-quiz/add-quiz.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { authGuard } from '../../core/guard/auth.guard';
+import { UsersComponent } from './users/users.component';
 
 export const ADMIN_ROUTES: Routes = [
   {
@@ -19,6 +20,11 @@ export const ADMIN_ROUTES: Routes = [
       {
         path: 'analytics',
         component: AnalyticsComponent,
+        data: { roles: ['admin'] },
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
         data: { roles: ['admin'] },
       },
     ],

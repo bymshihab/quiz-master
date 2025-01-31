@@ -120,6 +120,16 @@
       "id": "faae",
       "email": "h@gmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "f5d0",
+      "name": "jfhjkfdshdfsj",
+      "email": "fdsdsf@fdjhjdf.com",
+      "password": "12345678",
+      "role": "user",
+      "registered": false,
+      "quizzes": [],
+      "results": []
     }
   ],
   "quizzes": [

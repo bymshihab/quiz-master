@@ -33,4 +33,5 @@ export interface IUser {
   registered: boolean;
   quizzes: number[];
   results: number[];
+  id?: string;
 }
