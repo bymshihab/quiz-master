@@ -15,24 +15,41 @@
       aria-label="close sidebar"
       class="drawer-overlay"
     ></label>
-    <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+    <ul
+      class="menu bg-base-200 text-base-content min-h-full w-80 p-4 flex justify-between"
+    >
       <!-- Sidebar content here -->
-      <li>
-        <a
-          [routerLink]="['/admin/add-quiz']"
-          routerLinkActive="router-link-active bg-accent hover:none"
-          >Quiz</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLink]="['/admin/users']"
-          routerLinkActive="router-link-active bg-accent hover:none"
-          >Users</a
-        >
-      </li>
+      <div>
+        <li>
+          <a
+            [routerLink]="['/admin/add-quiz']"
+            routerLinkActive="router-link-active bg-accent hover:none"
+            >Quiz</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/admin/users']"
+            routerLinkActive="router-link-active bg-accent hover:none"
+            >Users</a
+          >
+        </li>
 
-      <li><a>Analytics</a></li>
+        <li>
+          <a
+            [routerLink]="['/admin/analytics']"
+            routerLinkActive="router-link-active bg-accent hover:none"
+            >Analytics</a
+          >
+        </li>
+      </div>
+
+      <div
+        class="w-full flex items-center justify-center gap-3 p-3 bg-slate-500 text-white rounded-lg"
+      >
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <a [routerLink]="['/login']" (click)="logout()" class="">Logout</a>
+      </div>
     </ul>
   </div>
 </div>
