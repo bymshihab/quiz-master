@@ -15,14 +15,8 @@
       "password": "user123",
       "role": "user",
       "registered": true,
-      "quizzes": [
-        1,
-        2
-      ],
-      "results": [
-        1,
-        2
-      ],
+      "quizzes": [1, 2],
+      "results": [1, 2],
       "createdAt": "2025-01-01",
       "updatedAt": "2025-01-01",
       "lastLogin": "2025-01-01",
@@ -146,19 +140,11 @@
       "questions": [
         {
           "text": "qwWEQEWQWE",
-          "options": [
-            "Framework",
-            "Library",
-            "Language"
-          ]
+          "options": ["Framework", "Library", "Language"]
         },
         {
           "text": "new Question ",
-          "options": [
-            "Facebook",
-            "Google",
-            "Microsoft"
-          ]
+          "options": ["Facebook", "Google", "Microsoft"]
         }
       ]
     },
@@ -175,10 +161,7 @@
       "questions": [
         {
           "text": "adsadsads",
-          "options": [
-            "1",
-            "2"
-          ]
+          "options": ["1", "2"]
         }
       ]
     }
