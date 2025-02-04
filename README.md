@@ -50,16 +50,27 @@
 3. **Access**:  
    Visit `http://localhost:4200/`.
 
-### **Creadentials**
+### 🎯 **Credentials**
 
-**Admin**:
-"name": "John Admin",
-"email": "admin@example.com",
-"password": "admin123"
-**Registed User**:
+🛠️ **Admin & User**
+
+````json
+{
+ "name": "John Admin",
+ "email": "admin@example.com",
+ "password": "admin123"
+}
+```json
+{
 "name": "Jane User",
-"email": "jane@example.com",
-"password": "user123",
+  "email": "jane@example.com",
+  "password": "user123",
+}
+
+
+
+
+
 
 <details> <summary>Click to view screenshots</summary>
 https://github.com/bymshihab/quiz-master/blob/main/imgs/Home.png
@@ -174,3 +185,4 @@ https://github.com/bymshihab/quiz-master/blob/main/imgs/Screenshot_5.png
 ├── angular.json # Angular CLI configuration
 ├── package.json # Project dependencies
 └── README.md # Project documentation -->
+````
