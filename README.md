@@ -57,7 +57,15 @@
    Visit `http://localhost:4200/`.
 
 <details> <summary>Click to view screenshots</summary>
-![Alt text](https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Home.png)
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/login.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/quiz%20screen.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/registration.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_1.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_2.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_3.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_4.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_5.png
+https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Home.png
 </details>
 
 <!-- # File structure -->
