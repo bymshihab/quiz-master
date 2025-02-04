@@ -52,15 +52,16 @@
 
 ### 🎯 **Credentials**
 
-🛠️ **Admin & User**
+#### 🛠️ **Admin**
+
 for Admin
 "email": "admin@example.com",
 "password": "admin123"
 
-for user:
+#### **Registed User**
+
 "email": "jane@example.com",
 "password": "user123",
---
 
 <details> <summary>Click to view screenshots</summary>
 https://github.com/bymshihab/quiz-master/blob/main/imgs/Home.png
