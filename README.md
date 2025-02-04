@@ -53,11 +53,11 @@
 ### 🎯 **Credentials**
 
 🛠️ **Admin & User**
+for Admin
 "email": "admin@example.com",
 "password": "admin123"
 
----
-
+for user:
 "email": "jane@example.com",
 "password": "user123",
 --
