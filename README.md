@@ -57,7 +57,7 @@
    Visit `http://localhost:4200/`.
 
 <details> <summary>Click to view screenshots</summary>
-![Alt text](./public/imgs/Home.png)
+![Alt text](/imgs/Home.png)
 </details>
 
 <!-- # File structure -->
