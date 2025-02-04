@@ -1,72 +1,64 @@
 # QuizeMaster
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+"QuizMaster" is an Angular web app where admins can manage quizzes and view analytics, while users can browse, take quizzes, and track their progress. It features role-based routing, reactive forms for quiz management, and observables for fetching quiz data from a JSON Server backend.
 
-## Development server
+### **Pages and Components Overview**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### **Common Pages (For all users):**
 
-## Code scaffolding
+1. **Home Page (Landing Page)**: This is the main page that all users will see when they visit the app.
+2. **Login & Register**: Pages for users to log in or create a new account.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### **Admin Pages (For Admin users only):**
 
-## Build
+1. **Dashboard**: This page allows the admin to manage quizzes and view results.
+2. **Create/Edit Quiz Page**: A form that enables the admin to add new quizzes or edit existing ones.
+3. **Quiz Analytics Page**: Displays data and analytics about the quizzes and results.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### **Normal User Pages (For registered and non-registered users):**
 
-## Running unit tests
+1. **Quiz List**: A page where users can browse the available quizzes.
+2. **Quiz Detail Page**: Users can take the quiz on this page.
+3. **Result Page**: This page shows the user's results after taking a quiz.
+4. **User Dashboard**: A dashboard for registered users to view their progress and past results.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+### **Angular Concepts to Focus On:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Routing and Guards**: Use Angular's routing to navigate between different pages. Implement guards to restrict access to certain routes (e.g., admins accessing the quiz management section).
+2. **Reactive Forms**: Use reactive forms for both quiz creation (by admins) and quiz-taking (by users), providing better validation and user input handling.
 
-## Further help
+3. **Observables**: Fetch data from the **JSON Server** (such as quizzes and results) using Angular's observable-based HTTP services, allowing for asynchronous data loading and smooth UI updates.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
 
-# Pages and Components
+### **Running Guide for QuizMaster**
 
-## Common:
+1. **Install Dependencies**:
 
-Home Page (Landing Page for all users).
-Login & Register.
+   ```bash
+   npm install
+   ```
 
-## Admin:
+2. **Start JSON Server**:
 
-Dashboard (Manage Quizzes, View Results).
-Create/Edit Quiz Page (Form for adding quizzes).
-Quiz Analytics Page.
+   ```bash
+   json-server --watch db.json --port 3000
+   ```
 
-## Normal Users:
+3. **Run Angular App**:
 
-Quiz List (Browse available quizzes).
-Quiz Detail Page (Take quiz).
-Result Page (View results).
-Dashboard (For registered users to view progress).
+   ```bash
+   ng serve
+   ```
 
-# Unique Learning Goals
+4. **Access**:  
+   Visit `http://localhost:4200/`.
 
-## Admin Side:
+<!-- # File structure -->
 
-CRUD operations using JSON Server for quizzes and results.
-Role-based routing and authentication.
-
-## User Side:
-
-Conditional functionality for registered vs. non-registered users.
-Data binding and handling quiz logic (e.g., score calculation).
-
-## Angular Concepts:
-
-Routing and guards for admin vs. user access.
-Reactive forms for quiz creation and taking quizzes.
-Observables for fetching data from JSON Server.
-
-# File structure
-
-quiz-master/
+<!-- quiz-master/
 │
 ├── src/
 │ ├── app/
@@ -163,4 +155,4 @@ quiz-master/
 │
 ├── angular.json # Angular CLI configuration
 ├── package.json # Project dependencies
-└── README.md # Project documentation
+└── README.md # Project documentation -->
