@@ -41,19 +41,13 @@
    npm install
    ```
 
-2. **Start JSON Server**:
-
-   ```bash
-   json-server --watch db.json --port 3000
-   ```
-
-3. **Run Angular App**:
+2. **Run Angular App**:
 
    ```bash
    ng serve
    ```
 
-4. **Access**:  
+3. **Access**:  
    Visit `http://localhost:4200/`.
 
 <details> <summary>Click to view screenshots</summary>
