@@ -53,24 +53,14 @@
 ### 🎯 **Credentials**
 
 🛠️ **Admin & User**
+"email": "admin@example.com",
+"password": "admin123"
 
-````json
-{
- "name": "John Admin",
- "email": "admin@example.com",
- "password": "admin123"
-}
-```json
-{
-"name": "Jane User",
-  "email": "jane@example.com",
-  "password": "user123",
-}
 ---
 
-
-
-
+"email": "jane@example.com",
+"password": "user123",
+--
 
 <details> <summary>Click to view screenshots</summary>
 https://github.com/bymshihab/quiz-master/blob/main/imgs/Home.png
@@ -185,4 +175,7 @@ https://github.com/bymshihab/quiz-master/blob/main/imgs/Screenshot_5.png
 ├── angular.json # Angular CLI configuration
 ├── package.json # Project dependencies
 └── README.md # Project documentation -->
-````
+
+```
+
+```
