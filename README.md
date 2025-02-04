@@ -57,7 +57,7 @@
    Visit `http://localhost:4200/`.
 
 <details> <summary>Click to view screenshots</summary>
-![Alt text](/imgs/Home.png)
+![Alt text](https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Home.png)
 </details>
 
 <!-- # File structure -->
