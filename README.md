@@ -56,6 +56,10 @@
 4. **Access**:  
    Visit `http://localhost:4200/`.
 
+<details> <summary>Click to view screenshots</summary>
+![Alt text](iamgesOfProject/Home.png)
+</details>
+
 <!-- # File structure -->
 
 <!-- quiz-master/
