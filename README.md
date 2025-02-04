@@ -50,6 +50,17 @@
 3. **Access**:  
    Visit `http://localhost:4200/`.
 
+### **Creadentials**
+
+**Admin**:
+"name": "John Admin",
+"email": "admin@example.com",
+"password": "admin123"
+**Registed User**:
+"name": "Jane User",
+"email": "jane@example.com",
+"password": "user123",
+
 <details> <summary>Click to view screenshots</summary>
 https://github.com/bymshihab/quiz-master/blob/main/imgs/Home.png
 https://github.com/bymshihab/quiz-master/blob/main/imgs/login.png
