@@ -57,14 +57,14 @@
    Visit `http://localhost:4200/`.
 
 <details> <summary>Click to view screenshots</summary>
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/login.png
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/quiz%20screen.png
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/registration.png
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_1.png
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_2.png
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_3.png
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_4.png
-https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Screenshot_5.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/login.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/quiz%20screen.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/registration.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/Screenshot_1.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/Screenshot_2.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/Screenshot_3.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/Screenshot_4.png
+https://github.com/bymshihab/quiz-master/blob/main/imgs/Screenshot_5.png
 https://raw.githubusercontent.com/bymshihab/quiz-master/main/public/imgs/Home.png
 </details>
 
